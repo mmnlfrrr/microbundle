@@ -279,15 +279,13 @@ function getMain({ options, entry, format }) {
 
 	let mainNoExtension = options.output;
 	if (options.multipleEntries) {
-		let name = entry.match(
-			/([\\/])index(\.(umd|cjs|es|m))?\.(mjs|cjs|[tj]sx?)$/,
-		)
+		let name = entry.match(/([\\/])index(\.(umd|cjs|es|m))?\.([cm]js|[tj]sx?)$/)
 			? mainNoExtension
 			: entry;
 		mainNoExtension = resolve(dirname(mainNoExtension), basename(name));
 	}
 	mainNoExtension = mainNoExtension.replace(
-		/(\.(umd|cjs|es|m))?\.(mjs|cjs|[tj]sx?)$/,
+		/(\.(umd|cjs|es|m))?\.([cm]js|[tj]sx?)$/,
 		'',
 	);
 
@@ -483,7 +481,7 @@ function createConfig(options, entry, format, writeMeta) {
 							!!writeMeta &&
 							options.css !== 'inline' &&
 							options.output.replace(
-								/(\.(umd|cjs|es|m))?\.(mjs|[tj]sx?)$/,
+								/(\.(umd|cjs|es|m))?\.([cm]js|[tj]sx?)$/,
 								'.css',
 							),
 						minimize: options.compress,
