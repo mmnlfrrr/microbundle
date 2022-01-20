@@ -1,5 +1,11 @@
 # microbundle
 
+## 0.14.3
+
+### Patch Changes
+
+- [`f04c85a`](https://github.com/developit/microbundle/commit/f04c85a1885a28a16c767665a1d5f17b13834406) [#926](https://github.com/developit/microbundle/pull/926) Thanks [@developit](https://github.com/developit)! - Fix mangle.json being overwritten with `[object Object]`
+
 ## 0.14.2
 
 ### Patch Changes
