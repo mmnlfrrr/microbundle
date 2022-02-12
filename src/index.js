@@ -474,7 +474,7 @@ function createConfig(options, entry, format, writeMeta) {
 			plugins: []
 				.concat(
 					postcss({
-						plugins: [autoprefixer()],
+						plugins: [],
 						autoModules: shouldCssModules(options),
 						modules: cssModulesConfig(options),
 						// only write out CSS for the first bundle (avoids pointless extra files):
