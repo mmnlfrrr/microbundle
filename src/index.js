@@ -478,7 +478,7 @@ function createConfig(options, entry, format, writeMeta) {
 						autoModules: shouldCssModules(options),
 						modules: cssModulesConfig(options),
 						// only write out CSS for the first bundle (avoids pointless extra files):
-						inject: false,
+						inject: true,
 						extract:
 							!!writeMeta &&
 							options.css !== 'inline' &&
