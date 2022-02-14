@@ -617,12 +617,7 @@ function createConfig(options, entry, format, writeMeta) {
 							nameCache,
 						}),
 						
-						    visualizer({
-						      filename: 'dist/bundle-analysis.html',
-						      open: true,
-						      gzipSize: true,
-						      template: 'treemap',
-						    }),
+						    
 						nameCache && {
 							// before hook
 							options: loadNameCache,
@@ -637,6 +632,12 @@ function createConfig(options, entry, format, writeMeta) {
 							},
 						},
 					],
+					visualizer({
+						      filename: 'dist/bundle-analysis.html',
+						      open: true,
+						      gzipSize: true,
+						      template: 'treemap',
+						    }),
 					// NOTE: OMT only works with amd and esm
 					// Source: https://github.com/surma/rollup-plugin-off-main-thread#config
 					useWorkerLoader && (format === 'es' || modern) && OMT(),
