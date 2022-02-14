@@ -31,6 +31,7 @@ import {
 import { getConfigFromPkgJson, getName } from './lib/package-info';
 import { shouldCssModules, cssModulesConfig } from './lib/css-modules';
 import { EOL } from 'os';
+import visualizer from 'rollup-plugin-visualizer'
 
 // Extensions to use when resolving modules
 const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.es6', '.es', '.mjs'];
@@ -615,6 +616,13 @@ function createConfig(options, entry, format, writeMeta) {
 									: Object.assign({}, minifyOptions.mangle || {}),
 							nameCache,
 						}),
+						
+						    visualizer({
+						      filename: 'dist/bundle-analysis.html',
+						      open: true,
+						      gzipSize: true,
+						      template: 'treemap',
+						    }),
 						nameCache && {
 							// before hook
 							options: loadNameCache,
