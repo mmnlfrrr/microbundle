@@ -632,12 +632,6 @@ function createConfig(options, entry, format, writeMeta) {
 							},
 						},
 					],
-					visualizer({
-						      filename: 'dist/bundle-analysis.html',
-						      open: true,
-						      gzipSize: true,
-						      template: 'treemap',
-						    }),
 					// NOTE: OMT only works with amd and esm
 					// Source: https://github.com/surma/rollup-plugin-off-main-thread#config
 					useWorkerLoader && (format === 'es' || modern) && OMT(),
@@ -673,6 +667,12 @@ function createConfig(options, entry, format, writeMeta) {
 							).then(results => results.filter(Boolean).join('\n'));
 						},
 					}),
+					visualizer({
+					      filename: 'dist/bundle-analysis.html',
+					      open: true,
+					      gzipSize: true,
+					      template: 'treemap',
+					    }),
 				)
 				.filter(Boolean),
 		},
