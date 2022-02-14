@@ -616,6 +616,12 @@ function createConfig(options, entry, format, writeMeta) {
 									: Object.assign({}, minifyOptions.mangle || {}),
 							nameCache,
 						}),
+					visualizer({
+					      filename: 'dist/bundle-analysis.html',
+					      open: true,
+					      gzipSize: true,
+					      template: 'treemap',
+					    }),
 						
 						    
 						nameCache && {
@@ -667,12 +673,6 @@ function createConfig(options, entry, format, writeMeta) {
 							).then(results => results.filter(Boolean).join('\n'));
 						},
 					}),
-					visualizer({
-					      filename: 'dist/bundle-analysis.html',
-					      open: true,
-					      gzipSize: true,
-					      template: 'treemap',
-					    }),
 				)
 				.filter(Boolean),
 		},
